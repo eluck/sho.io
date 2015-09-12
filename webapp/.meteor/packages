@@ -1,18 +1,10 @@
 # Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
 #
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-preserve-inputs
-backbone
-accounts-base
-accounts-password
-accounts-ui-bootstrap-3
-standard-app-packages
-bootstrap-3
-stylus
-shower
-emmet
-marked
-spin
-# appcache
+meteor-platform
+autopublish
+insecure
+mrt:bootstrap-3

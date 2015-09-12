@@ -1,6 +1,6 @@
-Meteor.autosubscribe(function () {
+Tracker.autorun(function () {
   Session.set('keynoteListReady', false);
-  Meteor.subscribe('keynotes-list', Meteor.userId(), function () {
+  Meteor.subscribe('keynotes-list', function () {
     Session.set('keynoteListReady', true);
   });
 });

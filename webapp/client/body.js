@@ -1,8 +1,8 @@
-Template.showerBody.show = function () {
+Template.body.show = function () {
   return !__.pathname();
 }
 
-Template.showerBody.$backToList = function () {
+Template.body.$backToList = function () {
   Session.set('keynoteEdit', false);
   Session.set('keynoteEditURL', false);
   Session.set('keynoteURL', false);
@@ -16,17 +16,11 @@ Template.showerBody.$backToList = function () {
   __.scrollToTop(100);
 }
 
-Template.showerBody.keynoteURL = function () {
+Template.body.keynoteURL = function () {
   return Template.keynoteEdit.url.call(Template.keynoteEdit.keynote());
 }
 
-Template.showerBody.helpers({
-  knoteUrlState: function() {
-    return Session.get('keynoteURLState');
-  }
-});
-
-Template.showerBody.events({
+Template.body.events({
   'click .navbar': function (e) {
     if ($(e.target).is('.js-scroll-top')) {
       __.scrollToTop();
@@ -38,14 +32,14 @@ Template.showerBody.events({
     __.waitFor(function () {
       return !Session.get('keynoteUnsaved')
     }, function () {
-      Template.showerBody.$backToList();
+      Template.body.$backToList();
     });
   },
   'click .js-new': function () {
     var _id = Keynotes.insert(__.keynotes.emptyKeynote(), function (err) {
       if (err) {
         console.log(err);
-        Template.showerBody.$backToList();
+        Template.body.$backToList();
       }
     });
 
@@ -57,7 +51,7 @@ Template.showerBody.events({
   }
 });
 
-Template.showerBody.rendered = function () {
+Template.body.rendered = function () {
   var pathname = __.pathname();
 
   if (!pathname) {

@@ -21,10 +21,10 @@
 </head>
 
 <body>
-{{> showerBody}}
+{{> body}}
 </body>
 
-<template name="showerBody">
+<template name="body">
   {{#if Session 'keynoteShow'}}
     {{> keynoteShow}}
   {{else}}
@@ -37,20 +37,12 @@
             </div>
             <div class="col-xs-7 text-right js-scroll-top">
               {{#if Session '_keynoteUnsaved'}}
-                {{#if Session 'keynoteURLState'}}
-                  <button class="btn js-save btn-default navbar-btn" disabled>Save</button>
-                {{else}}
-                  <button class="btn js-save btn-default navbar-btn">Save</button>
-                {{/if}}
+                <button class="btn js-save btn-default navbar-btn" {{#if Session 'keynoteURLState'}}disabled{{/if}}>Save</button>
               {{else}}
                 <button class="btn btn-default navbar-btn disabled">Saved</button>
               {{/if}}
 
-              {{#if Session 'keynoteURLState'}}
-                <a disabled class="btn btn-default navbar-btn"><i class="glyphicon glyphicon-share-alt"></i> View</a>
-                {{else}}
-                <a href="/{{keynoteURL}}"  target="shwr-preview" class="btn btn-default navbar-btn"><i class="glyphicon glyphicon-share-alt"></i> View</a>
-                {{/if}}
+              <a {{#unless Session 'keynoteURLState'}}href="/{{keynoteURL}}"  target="shwr-preview"{{else}}disabled{{/unless}} class="btn btn-default navbar-btn"><i class="glyphicon glyphicon-share-alt"></i> View</a>
             </div>
           {{else}}
             <div class="col-xs-7">
@@ -82,12 +74,14 @@
               {{> bodyBuiltWith}}</p>
           {{/if}}
         {{else}}
-          {{#if loggingIn}}
-            <br><br>
-            {{> spinner}}
-          {{else}}
-            {{> bodyJumbotron}}
-          {{/if}}
+          {{#isolate}}
+            {{#if loggingIn}}
+              <br><br>
+              {{> spinner}}
+            {{else}}
+              {{> bodyJumbotron}}
+            {{/if}}
+          {{/isolate}}
         {{/if}}
       </div>
     {{/if}}

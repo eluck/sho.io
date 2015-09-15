@@ -20,11 +20,7 @@
             <label for="url" class="input-group-addon">http://sho.io/</label>
             <input id="url" type="text" class="form-control" name="url" value="{{url}}" />
             <span class="input-group-btn">
-              {{#if Session 'keynoteURLState'}}
-                <button class="btn btn-default js-edit-url" disabled>Done</button>
-              {{else}}
-                <button class="btn btn-default js-edit-url">Done</button>
-              {{/if}}
+              <button class="btn btn-default js-edit-url" {{#if Session 'keynoteURLState'}}disabled{{/if}}>Done</button>
             </span>
           </div>
         {{else}}
@@ -103,12 +99,8 @@
       </div>
       <div class="form-group slide-buttons pull-right">
         <div class="btn-group">
-          {{#unless last}}
-            <button class="btn btn-default js-move-slide" data-direction="1"><i class="glyphicon glyphicon-arrow-down"></i></button>
-          {{/unless}}
-          {{#unless first}}
-            <button class="btn btn-default js-move-slide" data-direction="-1"><i class="glyphicon glyphicon-arrow-up"></i></button>
-          {{/unless}}
+          <button class="btn btn-default js-move-slide" data-direction="1" {{#if last}}disabled{{/if}}><i class="glyphicon glyphicon-arrow-down"></i></button>
+          <button class="btn btn-default js-move-slide" data-direction="-1" {{#if first}}disabled{{/if}}><i class="glyphicon glyphicon-arrow-up"></i></button>
         </div>
         <div class="btn-group">
           {{#if Session 'keynoteToRemoveSlide' i}}

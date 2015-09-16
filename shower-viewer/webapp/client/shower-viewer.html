@@ -1,0 +1,47 @@
+<head>
+  <title>shower-viewer</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  {{#unless loggedIn}}
+    {{> loginPage}}
+  {{else}}
+    {{> mainPage}}
+  {{/unless}}
+</body>
+
+<template name="loginPage">
+  <div class="container login-view">
+
+      <div class="jumbotron">
+        <h1>Shower viewer</h1>
+        <p class="lead">
+          Switch slides of your <a href="http://shwr.me" target="_blank">Shower.js</a> presentations using a smartphone
+        </p>
+        <div class="custom-login-buttons btn btn-lg btn-success js-button-login">
+          {{> loginButtons}}
+        </div>
+        <p class="lead next-lead">
+          Or just enter a pin code you've been given to start watching a presentation
+        </p>
+        <div class="pin-code-input-wrapper">
+          <input type="number" class="form-control pin-code-input" id="presentationPinCode" placeholder="Pin code">
+          <div class="btn btn-success btn-pin-code">Go!</div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Evgeny Lukianchikov, 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
+</template>
+
+<template name="mainPage">
+  <div class="container">
+    
+  </div>
+</template>

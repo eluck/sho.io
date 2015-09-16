@@ -125,3 +125,22 @@ body {
   vertical-align: top;
 }
 /*=====End of login view=====*/
+
+
+
+/*=======Main page view====*/
+.presentation-preview {
+  margin: 20px;
+  float: left;
+  min-width: 50px;
+  min-height: 50px;
+  background-color: rgba(8, 17, 204, 0.44);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.main-page-view h2 small {
+  display: inline-block;
+}
+
+/*======End of main page view=====*/

@@ -21,14 +21,16 @@
         <p class="lead">
           Switch slides of your <a href="http://shwr.me" target="_blank">Shower.js</a> presentations using a smartphone
         </p>
-        <div class="custom-login-buttons btn btn-lg btn-success js-button-login">
-          {{> loginButtons}}
+        <div class="">
+          <input type="url" class="form-control url-input" id="hosted-presentation-url"
+                 placeholder="Enter hosted presentation URL here">
+          <div class="btn btn-success btn-url">Go!</div>
         </div>
         <p class="lead next-lead">
-          Or just enter a pin code you've been given to start watching a presentation
+          Or just enter a pin code you've been given to show controls for a presentation
         </p>
         <div class="pin-code-input-wrapper">
-          <input type="number" class="form-control pin-code-input" id="presentationPinCode" placeholder="Pin code">
+          <input type="number" class="form-control pin-code-input" id="showing-presentation-code" placeholder="Pin code">
           <div class="btn btn-success btn-pin-code">Go!</div>
         </div>
       </div>

@@ -115,6 +115,12 @@ body {
   width: 100%
 }
 
+.url-input {
+  width: 80%;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .pin-code-input {
   width: 50%;
   display: inline-block;

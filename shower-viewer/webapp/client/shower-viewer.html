@@ -6,11 +6,7 @@
 </head>
 
 <body>
-  {{#unless loggedIn}}
-    {{> loginPage}}
-  {{else}}
-    {{> mainPage}}
-  {{/unless}}
+
 </body>
 
 <template name="loginPage">
@@ -42,8 +38,8 @@
     </div> <!-- /container -->
 </template>
 
-<template name="mainPage">
 
+<template name="mainPage">
   <div class="container main-page-view">
     <div class="header clearfix">
         <nav>
@@ -66,4 +62,10 @@
       </div>
     </div>
   </div>
+</template>
+
+
+
+<template name="presentation">
+  <iframe src="http://kurskmeetup.github.io/docker-simply" width="100%" height="100%" class="main-frame"></iframe>
 </template>

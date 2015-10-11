@@ -150,3 +150,16 @@ body {
 }
 
 /*======End of main page view=====*/
+
+
+
+.main-frame {
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

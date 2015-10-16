@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
 
+<body>
 </body>
+
+
 
 <template name="loginPage">
   <div class="container login-view">
@@ -22,9 +24,13 @@
           <li>Paste your presentation URL below and click Go!</li>
         </ol>
         <div>
-          <input type="url" class="form-control url-input" id="hosted-presentation-url"
-                 placeholder="Enter a hosted presentation URL here">
-          <div class="btn btn-success btn-url">Go!</div>
+          {{#unless urlSpinner}}
+            <input type="url" class="form-control url-input" id="hosted-presentation-url"
+                   placeholder="Enter a hosted presentation URL here">
+            <div class="btn btn-success js-btn-url">Go!</div>
+          {{else}}
+            {{> spinner}}
+          {{/unless}}
         </div>
         <hr/>
         <p class="next-lead">
@@ -32,7 +38,7 @@
         </p>
         <div class="pin-code-input-wrapper">
           <input type="number" class="form-control pin-code-input" id="showing-presentation-code" placeholder="Pin code">
-          <div class="btn btn-success btn-pin-code">Go!</div>
+          <div class="btn btn-success js-btn-pin-code">Go!</div>
         </div>
       </div>
 
@@ -44,33 +50,18 @@
 </template>
 
 
-<template name="mainPage">
-  <div class="container main-page-view">
-    <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Project name</h3>
-    </div>
-    <div class="jumbotron">
-      <div class="header">
-        <h2>Your presentations <small><a href="#">Add a new one...</a></small></h2>
-      </div>
-      <div class="presentations-list">
-        {{#each presentations}}
-          <div class="presentation-preview"><p>{{url}}</p></div>
-        {{/each}}
-      </div>
-    </div>
-  </div>
-</template>
-
-
 
 <template name="presentation">
   <iframe src="http://kurskmeetup.github.io/docker-simply" width="100%" height="100%" class="main-frame"></iframe>
+</template>
+
+
+<template name="spinner">
+  <div class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+  </div>
 </template>

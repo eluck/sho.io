@@ -2,20 +2,23 @@ Template.registerHelper 'loggedIn', ->
   Boolean Meteor.userId()
 
 
+blink = ($element) ->
+  $element.fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100)
+
+
+Template.loginPage.onCreated -> @data.urlSpinner = new ReactiveVar false
+
+
 Template.loginPage.events
-  'click .js-button-login': _.debounce ((e) ->
-    e.stopPropagation()
-    $('#login-dropdown-list a.dropdown-toggle').click()
-  ), 100, true
+  'click .js-btn-url': (event, template) ->
+    $input = template.$ '.url-input'
+    url = $input.val()
+    return blink $input unless url
+    template.data.urlSpinner.set true
+    Meteor.call 'runPresentation', url, (error, result) ->
+      template.data.urlSpinner.set false
 
 
-
-Template.mainPage.onRendered ->
-  @$('.presentations-list').isotope
-    itemSelector: '.presentation-preview'
-
-
-
-Template.mainPage.helpers
-  presentations: ->
-    Presentations.find()
+Template.loginPage.helpers
+  urlSpinner: -> @urlSpinner.get()
+  

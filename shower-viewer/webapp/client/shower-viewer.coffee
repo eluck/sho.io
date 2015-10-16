@@ -17,8 +17,10 @@ Template.loginPage.events
     template.data.urlSpinner.set true
     Meteor.call 'runPresentation', url, (error, result) ->
       template.data.urlSpinner.set false
+      if error
+        console.error error
+        return $.growl.error({ message: "Something went wrong" });
 
 
 Template.loginPage.helpers
   urlSpinner: -> @urlSpinner.get()
-  

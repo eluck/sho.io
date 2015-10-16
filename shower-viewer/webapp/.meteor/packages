@@ -6,10 +6,7 @@
 
 meteor-platform
 coffeescript
-ian:accounts-ui-bootstrap-3
 twbs:bootstrap
-accounts-password
-isotope:isotope
 kadira:flow-router
 kadira:blaze-layout
 reactive-var

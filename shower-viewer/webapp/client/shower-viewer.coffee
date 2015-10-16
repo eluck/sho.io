@@ -42,6 +42,10 @@ Template.presentation.onRendered ->
   $(window).off('resize').on 'resize', => $iframe.height(window.innerHeight)
   $(window).off('mousemove').on 'mousemove', (e) =>
     showSidebar() unless e.pageX
-  $iframe.load =>
-    blink @$('.menu-pointer'), 1000
-    .fadeOut 1000
+#  $iframe.load =>
+#    blink @$('.menu-pointer'), 1000
+#    .fadeOut 1000
+
+
+
+window.addEventListener 'message', (event) -> console.log 'event:', event

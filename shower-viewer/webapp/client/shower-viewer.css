@@ -75,8 +75,11 @@ body {
     margin-bottom: 30px;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
+  .container .jumbotron {
     border-bottom: 0;
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-top: 36px;
   }
 }
 
@@ -106,8 +109,21 @@ body {
   left: -75px;
 }
 
-.next-lead {
-  margin-top: 16px;
+.login-view .lead {
+  font-size: 22px;
+}
+
+.login-view .next-lead,
+.login-view ol {
+  text-align: justify;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.login-view hr {
+  margin-top: 25px;
+  margin-bottom: 20px;
 }
 
 .pin-code-input-wrapper {

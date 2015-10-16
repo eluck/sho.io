@@ -11,19 +11,24 @@
 
 <template name="loginPage">
   <div class="container login-view">
-
       <div class="jumbotron">
         <h1>Shower viewer</h1>
         <p class="lead">
-          Switch slides of your <a href="http://shwr.me" target="_blank">Shower.js</a> presentations using a smartphone
+          A remote control for your presentation
         </p>
-        <div class="">
+        <ol>
+          <li>Create a presentation with <a href="http://shwr.me" target="_blank">Shower.js</a>;</li>
+          <li>Host it online (i.e. on github pages for free)</li>
+          <li>Paste your presentation URL below and click Go!</li>
+        </ol>
+        <div>
           <input type="url" class="form-control url-input" id="hosted-presentation-url"
-                 placeholder="Enter hosted presentation URL here">
+                 placeholder="Enter a hosted presentation URL here">
           <div class="btn btn-success btn-url">Go!</div>
         </div>
-        <p class="lead next-lead">
-          Or just enter a pin code you've been given to show controls for a presentation
+        <hr/>
+        <p class="next-lead">
+          To control your presentation from another device, paste the pin-code, you've been given, below:
         </p>
         <div class="pin-code-input-wrapper">
           <input type="number" class="form-control pin-code-input" id="showing-presentation-code" placeholder="Pin code">

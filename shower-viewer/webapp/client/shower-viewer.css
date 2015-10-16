@@ -195,6 +195,21 @@ body {
   padding: 0;
 }
 
+.menu-trigger {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.menu-pointer {
+  position: absolute;
+  background-image: url('images/menu_is_here_1.png');
+  background-repeat: no-repeat;
+  width: 600px;
+  height: 500px;
+}
+
 
 
 /*=======Spinner view====*/

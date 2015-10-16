@@ -22,5 +22,13 @@ Template.loginPage.events
         return $.growl.error({ message: "Something went wrong" });
 
 
+
+  'click .js-btn-pin-code': (event, template) ->
+    $input = template.$ '.pin-code-input'
+    url = $input.val()
+    return blink $input unless url
+    
+
+
 Template.loginPage.helpers
   urlSpinner: -> @urlSpinner.get()

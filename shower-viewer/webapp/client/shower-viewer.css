@@ -195,35 +195,13 @@ body {
   padding: 0;
 }
 
-.menu-trigger {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
+#presentationInfoPopup input {
+  max-width: 200px;
 }
 
-.menu-pointer {
-  display: block;
-  position: absolute;
-  width: 400px;
+#presentationInfoPopup p:not(:first-child) {
+  margin-top: 25px;
 }
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -270px;
-  bottom: 0;
-  width: 270px;
-  background: #448AFF;
-}
-
-
-@media screen and (max-width: 767px) {
-  .menu-pointer {
-    width: 300px;
-  }
-}
-
 
 
 /*=======Spinner view====*/

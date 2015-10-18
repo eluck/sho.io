@@ -29,5 +29,3 @@ Template.loginPage.events
 
 Template.loginPage.helpers
   urlSpinner: -> @urlSpinner.get()
-
-

@@ -1,3 +1,1 @@
-Meteor.publish 'presentation', (presentationId) ->
- Presentations.find presentationId
-
+Meteor.publish 'presentation', (presentationId) -> Presentations.find presentationId

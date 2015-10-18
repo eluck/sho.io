@@ -204,6 +204,20 @@ body {
 }
 
 
+/*=======Wait view====*/
+#wait-view small {
+  display: inline-block;
+}
+
+#wait-view h1 {
+  margin-top: 30vh;
+  text-align: center;
+}
+/*=======End of wait view====*/
+
+
+
+
 /*=======Spinner view====*/
 .spinner {
   margin: 20px auto;

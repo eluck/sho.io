@@ -8,6 +8,8 @@ FlowRouter.route '/presentation/:presentationId',
     @register 'presentation', Meteor.subscribe 'presentation', params.presentationId
 
 
-  action: ->
-    BlazeLayout.render 'presentation'
+  action: (params, queryParams) ->
+    Tracker.autorun ->
+      return BlazeLayout.render 'wait' unless Presentations.findOne params.presentationId
+      BlazeLayout.render 'presentation'
     

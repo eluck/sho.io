@@ -6,7 +6,7 @@ setupIframeSizing = ($iframe) ->
 showPresentationInfoPopup = ->
   $popup = $ '#presentationInfoPopup'
   return $popup.modal 'show' if $popup.length
-  Blaze.renderWithData Template.presentationInfoPopup, {}, document.body
+  Blaze.renderWithData Template.presentationInfoPopup, Presentations.findOne(), document.body
   $popup = $ '#presentationInfoPopup'
   $popup.modal().modal 'show'
 
@@ -17,6 +17,15 @@ Template.presentation.onRendered ->
   setupIframeSizing $iframe
   $iframe.load => showPresentationInfoPopup()
 
+
+
+Template.presentationInfoPopup.onRendered ->
+  $text = @$("input:text").get(0)
+  length = $text.value.length
+  console.log 'length:', length
+  $text.selectionStart = 0
+  $text.selectionEnd = length
+  $text.focus()
 
 
 window.addEventListener 'message', (event) -> console.log 'event:', event

@@ -205,7 +205,16 @@ body {
 .menu-pointer {
   display: block;
   position: absolute;
-  width: 600px;
+  width: 400px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -270px;
+  bottom: 0;
+  width: 270px;
+  background: #448AFF;
 }
 
 

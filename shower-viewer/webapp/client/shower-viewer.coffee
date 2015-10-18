@@ -11,7 +11,7 @@ Template.loginPage.events
     url = $input.val()
     return Helpers.blink $input unless url
     template.data.urlSpinner.set true
-    Meteor.call 'runPresentation', url, (error, result) ->
+    Meteor.call 'addPresentation', url, (error, result) ->
       template.data.urlSpinner.set false
       if error
         console.error error

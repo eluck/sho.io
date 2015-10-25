@@ -272,3 +272,16 @@ body {
   }
 }
 /*======End of spinner view=====*/
+
+
+
+
+/*=======Control view====*/
+#control #pattern-lock {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+/*======End of control view=====*/

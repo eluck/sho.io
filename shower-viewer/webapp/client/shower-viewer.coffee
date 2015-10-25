@@ -22,8 +22,9 @@ Template.loginPage.events
 
   'click .js-btn-pin-code': (event, template) ->
     $input = template.$ '.pin-code-input'
-    url = $input.val()
-    return Helpers.blink $input unless url
+    pinCode = $input.val()
+    return Helpers.blink $input unless pinCode
+    FlowRouter.go '/control/' + pinCode
 
 
 

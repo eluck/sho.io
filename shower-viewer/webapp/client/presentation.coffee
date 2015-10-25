@@ -22,7 +22,6 @@ Template.presentation.onRendered ->
 Template.presentationInfoPopup.onRendered ->
   $text = @$("input:text").get(0)
   length = $text.value.length
-  console.log 'length:', length
   $text.selectionStart = 0
   $text.selectionEnd = length
   $text.focus()

@@ -28,4 +28,10 @@ Template.presentationInfoPopup.onRendered ->
   $text.focus()
 
 
+
+Template.presentationInfoPopup.helpers
+  baseUrl: -> Meteor.absoluteUrl()
+
+
+
 window.addEventListener 'message', (event) -> console.log 'event:', event

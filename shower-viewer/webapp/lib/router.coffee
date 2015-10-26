@@ -11,7 +11,7 @@ FlowRouter.route '/presentation/:presentationId',
 
   action: (params, queryParams) ->
     @waitComputation = Tracker.autorun ->
-      return BlazeLayout.render 'wait' unless Presentations.findOne params.presentationId
+      return BlazeLayout.render 'wait' unless Presentations.findOne params.presentationId, pendingAction: 0
       BlazeLayout.render 'presentation'
 
 
@@ -29,7 +29,7 @@ FlowRouter.route '/control/:pinCode',
 
   action: (params, queryParams) ->
     @waitComputation = Tracker.autorun ->
-      return BlazeLayout.render 'wait' unless Presentations.findOne pinCode: params.pinCode
+      return BlazeLayout.render 'wait' unless Presentations.findOne {pinCode: params.pinCode}, pendingAction: 0
       BlazeLayout.render 'control'
 
 

@@ -36,6 +36,11 @@ Template.presentation.onRendered ->
 
 
 
+Template.presentation.helpers
+  url: -> Presentations.findOne({}, {url: 1}).url
+
+
+
 Template.presentationInfoPopup.onRendered ->
   $text = @$("input:text").get(0)
   length = $text.value.length

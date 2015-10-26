@@ -113,7 +113,6 @@ body {
 
 .custom-login-buttons li {
   list-style: none;
-
 }
 
 .custom-login-buttons a.dropdown-toggle {
@@ -280,8 +279,24 @@ body {
 #control #pattern-lock {
   height: 100%;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 100;
 }
+
+#control .container {
+  max-width: 500px;
+}
+
+#control .jumbotron h1 {
+  margin-top: 0;
+}
+
+#control p.contents {
+  font-size: 16px;
+  margin-top: 40px;
+}
+
 /*======End of control view=====*/

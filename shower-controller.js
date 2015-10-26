@@ -1,4 +1,10 @@
 window.addEventListener('message', function(event) {
-    if (event.data  == 'engine') return window.parent.postMessage('shower', '*');
-    if (event.data.match(/^eval:::/)) return window.parent.postMessage(eval(event.data.split(':::')[1]), '*');
+    switch (event.data) {
+        case 'is-shower-defined': return window.parent.postMessage(typeof window.shower !== 'undefined', '*');
+        case 'shower-next': return shower._turnNextSlide();
+        case 'shower-prev': return shower._turnPreviousSlide();
+        case 'shower-zoomIn': return shower.enterSlideMode();
+        case 'shower-zoomOut': return shower.enterListMode();
+        default: return window.parent.postMessage('unrecognized command', '*');
+    }
 });

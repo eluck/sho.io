@@ -17,11 +17,8 @@ class PresentationControl
 
 
   go: (action) =>
-    switch action
-      when 'next' then @iframe.contentWindow.postMessage 'eval:::' + 'shower.next()', '*'
-      when 'prev' then @iframe.contentWindow.postMessage 'eval:::' + 'shower.prev()', '*'
-      when 'zoomIn' then @iframe.contentWindow.postMessage 'eval:::' + 'shower.enterSlideMode()', '*'
-      when 'zoomOut' then @iframe.contentWindow.postMessage 'eval:::' + 'shower.enterListMode()', '*'
+    return unless action in ['next', 'prev', 'zoomIn', 'zoomOut']
+    @iframe.contentWindow.postMessage "shower-#{action}", '*'
     Meteor.call 'clearPendingAction', @presentation.pinCode
 
 

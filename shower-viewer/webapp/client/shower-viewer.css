@@ -127,13 +127,24 @@ body {
   font-size: 22px;
 }
 
-.login-view .next-lead,
+.login-view .next-lead {
+  text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
 .login-view ol {
   text-align: justify;
   font-size: 16px;
   font-weight: 300;
   margin-bottom: 20px;
 }
+
+.login-view li {
+  margin-bottom: 10px;
+}
+
 
 .login-view hr {
   margin-top: 25px;
@@ -200,6 +211,10 @@ body {
 
 #presentationInfoPopup p:not(:first-child) {
   margin-top: 25px;
+}
+
+#presentationInfoPopup p {
+  text-align: justify;
 }
 
 

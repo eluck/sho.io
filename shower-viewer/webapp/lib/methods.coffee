@@ -22,17 +22,6 @@ Meteor.methods
     if action.name in ['next', 'prev', 'zoomIn', 'zoomOut']
       return Presentations.update presentation._id, $set: pendingAction: action.name
 
-#    if action.name == 'go'
-#      modifier = {}
-#      if action.view
-#        check action.view, String
-#        modifier.view = action.view
-#      if action.slideNumber
-#        return check action.view, Match.Integer
-#        modifier.slideNumber = action.slideNumber
-#      throw new Meteor.Error 'Go requires "view" and/or "slideNumber" paramters' unless _.keys(modifier).length
-#      return Presentations.update presentation._id, $set: modifier
-
 
 
   clearPendingAction: (pinCode) ->

@@ -10,9 +10,15 @@ FlowRouter.route '/presentation/:presentationId',
 
 
   action: (params, queryParams) ->
-    Tracker.autorun ->
+    @waitComputation = Tracker.autorun ->
       return BlazeLayout.render 'wait' unless Presentations.findOne params.presentationId
       BlazeLayout.render 'presentation'
+
+
+  triggersExit: [
+    (data) -> data.route.waitComputation.stop()
+    (data) -> $('.modal-backdrop').remove()
+  ]
 
 
 
@@ -22,6 +28,11 @@ FlowRouter.route '/control/:pinCode',
 
 
   action: (params, queryParams) ->
-    Tracker.autorun ->
+    @waitComputation = Tracker.autorun ->
       return BlazeLayout.render 'wait' unless Presentations.findOne pinCode: params.pinCode
       BlazeLayout.render 'control'
+
+
+  triggersExit: [
+    (data) -> data.route.waitComputation.stop()
+  ]

@@ -6,7 +6,7 @@ setupIframeSizing = ($iframe) ->
 showPresentationInfoPopup = ->
   $popup = $ '#presentationInfoPopup'
   return $popup.modal 'show' if $popup.length
-  Blaze.renderWithData Template.presentationInfoPopup, Presentations.findOne(), document.body
+  Blaze.renderWithData Template.presentationInfoPopup, Presentations.findOne(), document.getElementById 'presentation'
   $popup = $ '#presentationInfoPopup'
   $popup.modal().modal 'show'
 

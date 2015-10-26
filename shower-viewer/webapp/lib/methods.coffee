@@ -6,16 +6,16 @@ getRandomPinCode = ->
 Meteor.methods
   addPresentation: (url) ->
     check url, String
+    console.log 'addPresentation url:', url
     pinCode = getRandomPinCode() while Presentations.findOne pinCode: pinCode
     Presentations.insert url: url, pinCode: pinCode
 
 
 
   go: (pinCode, action) ->
-    console.log 'go pinCode:', pinCode, 'action:', action
     check pinCode, String
     check action, Object
-
+    console.log 'go pinCode:', pinCode, 'action:', action
     presentation = Presentations.findOne pinCode: pinCode
     throw new Meteor.Error 'Presentation not found' unless presentation
 
@@ -34,6 +34,8 @@ Meteor.methods
 #      return Presentations.update presentation._id, $set: modifier
 
 
+
   clearPendingAction: (pinCode) ->
     check pinCode, String
+    console.log 'clearPendingAction pinCode:', pinCode
     Presentations.update {pinCode: pinCode}, $set: pendingAction: ''

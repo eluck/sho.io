@@ -14,6 +14,9 @@
         <p class="lead">
           A remote control for your presentation
         </p>
+        <p class="next-lead">
+          On your laptop:
+        </p>
         <ol>
           <li>Create a presentation with <a href="http://shwr.me" target="_blank">Shower.js</a> and include
             <a href="https://raw.githubusercontent.com/eluck/sho.io/no-sign-in/shower-controller.js" target="_blank">
@@ -21,24 +24,24 @@
             in it;
           </li>
           <li>Host the presentation online (i.e. on github pages for free);</li>
-          <li>Paste your presentation URL below and click Go!</li>
+          <li>Paste your presentation's URL here and click Go!</li>
         </ol>
         <div>
           {{#unless urlSpinner}}
             <input type="url" class="form-control url-input" id="hosted-presentation-url"
-                   placeholder="Enter a hosted presentation URL here">
+                   placeholder="Paste a hosted presentation URL here">
             <div class="btn btn-success js-btn-url">Go!</div>
           {{else}}
             {{> spinner}}
           {{/unless}}
         </div>
-        <hr/>
         <p class="next-lead">
-          To control your presentation from your phone:
+          On your phone:
         </p>
         <ol>
-          <li>Open this page in your phone's browser;</li>
-          <li>Enter the pin-code, you obtained during the previous steps, in the field below and click Go!</li>
+          <li>Open this page on your phone;</li>
+          <li>Enter the pin-code below and click Go!</li>
+          <li>Switch slides of the presentation with swipes and pinches.</li>
         </ol>
         <div class="pin-code-input-wrapper">
           <input type="number" class="form-control pin-code-input" id="showing-presentation-code"
@@ -47,9 +50,9 @@
         </div>
       </div>
 
-      <footer class="footer">
-        <p>&copy; Evgeny Lukianchikov, 2015</p>
-      </footer>
+      <p class="footer">
+        &copy; Evgeny Lukianchikov, 2015
+      </p>
 
     </div> <!-- /container -->
 </template>

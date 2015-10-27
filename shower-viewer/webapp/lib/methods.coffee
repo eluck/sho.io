@@ -8,7 +8,9 @@ Meteor.methods
     check url, String
     console.log 'addPresentation url:', url
     pinCode = getRandomPinCode() while Presentations.findOne pinCode: pinCode
-    Presentations.insert url: url, pinCode: pinCode
+    presentationId = Presentations.insert url: url, pinCode: pinCode
+    Control.insert pinCode: pinCode, presentationId: presentationId
+    return presentationId
 
 
 
@@ -16,15 +18,14 @@ Meteor.methods
     check pinCode, String
     check action, Object
     console.log 'go pinCode:', pinCode, 'action:', action
-    presentation = Presentations.findOne pinCode: pinCode
-    throw new Meteor.Error 'Presentation not found' unless presentation
-
+    control = Control.findOne pinCode: pinCode
+    throw new Meteor.Error 'Control not found' unless control
     if action.name in ['next', 'prev', 'zoomIn', 'zoomOut']
-      return Presentations.update presentation._id, $set: pendingAction: action.name
+      return Control.update control._id, $set: pendingAction: action.name
 
 
 
   clearPendingAction: (pinCode) ->
     check pinCode, String
     console.log 'clearPendingAction pinCode:', pinCode
-    Presentations.update {pinCode: pinCode}, $set: pendingAction: ''
+    Control.update {pinCode: pinCode}, $set: pendingAction: ''

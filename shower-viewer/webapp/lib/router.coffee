@@ -5,13 +5,15 @@ FlowRouter.route '/',
 
 
 FlowRouter.route '/presentation/:presentationId',
-  subscriptions: (params, queryParams) ->
+  subscriptions: (params) ->
     @register 'presentation', Meteor.subscribe 'presentation', presentationId: params.presentationId
+    @register 'control', Meteor.subscribe 'control', presentationId: params.presentationId
 
 
-  action: (params, queryParams) ->
+  action: (params) ->
     @waitComputation = Tracker.autorun ->
-      return BlazeLayout.render 'wait' unless Presentations.findOne params.presentationId, pendingAction: 0
+      entries = [Presentations.findOne(params.presentationId), Control.findOne(presentationId: params.presentationId)]
+      return BlazeLayout.render 'wait' unless entries.every (entry) -> entry
       BlazeLayout.render 'presentation'
 
 
@@ -23,13 +25,13 @@ FlowRouter.route '/presentation/:presentationId',
 
 
 FlowRouter.route '/control/:pinCode',
-  subscriptions: (params, queryParams) ->
-    @register 'presentation', Meteor.subscribe 'presentation', pinCode: params.pinCode
+  subscriptions: (params) ->
+    @register 'control', Meteor.subscribe 'control', pinCode: params.pinCode
 
 
-  action: (params, queryParams) ->
+  action: (params) ->
     @waitComputation = Tracker.autorun ->
-      return BlazeLayout.render 'wait' unless Presentations.findOne {pinCode: params.pinCode}, pendingAction: 0
+      return BlazeLayout.render 'wait' unless Control.findOne pinCode: params.pinCode
       BlazeLayout.render 'control'
 
 

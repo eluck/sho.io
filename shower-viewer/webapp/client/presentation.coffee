@@ -13,13 +13,13 @@ showPresentationInfoPopup = ->
 
 
 class PresentationControl
-  constructor: (@iframe, @presentation) ->
+  constructor: (@iframe, @control) ->
 
 
   go: (action) =>
     return unless action in ['next', 'prev', 'zoomIn', 'zoomOut']
     @iframe.contentWindow.postMessage "shower-#{action}", '*'
-    Meteor.call 'clearPendingAction', @presentation.pinCode
+    Meteor.call 'clearPendingAction', @control.pinCode
 
 
 
@@ -28,8 +28,8 @@ Template.presentation.onRendered ->
   setupIframeSizing $iframe
   $iframe.load =>
     showPresentationInfoPopup()
-    presentationControl = new PresentationControl $iframe.get(0), Presentations.findOne()
-    Presentations.find({}, {pendingAction: 1}).observeChanges
+    presentationControl = new PresentationControl $iframe.get(0), Control.findOne()
+    Control.find({}, {pendingAction: 1}).observeChanges
       changed: (id, fields) ->
         return unless fields.pendingAction
         presentationControl.go fields.pendingAction

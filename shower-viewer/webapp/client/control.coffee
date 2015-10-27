@@ -1,6 +1,6 @@
 Template.control.onRendered ->
   element = document.getElementById 'pattern-lock'
-  presentation = Presentations.findOne()
+  control = Control.findOne()
 
   @hammer = new Hammer element
   @hammer.get('pinch').set enable: true
@@ -8,21 +8,21 @@ Template.control.onRendered ->
 
   @hammer.on "swipeleft", (ev) ->
     window.navigator?.vibrate? [30]
-    Meteor.call 'go', presentation.pinCode, name: 'next'
+    Meteor.call 'go', control.pinCode, name: 'next'
 
   @hammer.on "swiperight", (ev) ->
     window.navigator?.vibrate? [30, 10, 30]
-    Meteor.call 'go', presentation.pinCode, name: 'prev'
+    Meteor.call 'go', control.pinCode, name: 'prev'
 
   @hammer.on "pinchin", (ev) ->
     return unless ev.eventType == 4
     window.navigator?.vibrate? [30, 10, 30]
-    Meteor.call 'go', presentation.pinCode, name: 'zoomOut'
+    Meteor.call 'go', control.pinCode, name: 'zoomOut'
 
   @hammer.on "pinchout", (ev) ->
     return unless ev.eventType == 4
     window.navigator?.vibrate? [30]
-    Meteor.call 'go', presentation.pinCode, name: 'zoomIn'
+    Meteor.call 'go', control.pinCode, name: 'zoomIn'
 
   window.navigator?.vibrate? [30]
   window.navigator?.wakeLock?.request "display"
